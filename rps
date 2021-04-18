@@ -1,6 +1,6 @@
 {=(items):rock paper scissors}
 {{if({contains({lower:{args(1)}}):{items}}==true):=(choice):{lower:{args(1)}}|break(==):That's not something you can play with!}}
-{=(bot_choice):{#:{join(\~):{items}}}}
+{=(bot_choice):{#:{join(~):{items}}}}
 {=(game):{m:trunc({index({choice}):{items}}-{index({bot_choice}):{items}})}}
 {=(win):You win!}
 {=(lose):You lose!}
