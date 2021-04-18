@@ -1,0 +1,27 @@
+{=(equation):{replace(**,^):{join():{lower:{args}}}}}
+{=(result):{m:{equation}}}
+{=(check):{if({m:{result}}=={m:{m:{result}}}):true|false}}
+{=(result):{replace(a,):{replace(.0a,):{result}a}}}
+{=(success):{
+    "title": "Calculation",
+    "fields": [
+        {
+            "name": "Input",
+            "value": "`{args}`",
+            "inline": false
+        },
+        {
+            "name": "Result",
+            "value": "`{result}`",
+            "inline": false
+        }
+    ],
+    "color": 7506394
+}}
+{=(fail):{
+    "title": "Invalid input",
+    "description": "Check the [documentation](https://docs.carl.gg/tags-and-triggers/tags-advanced-usage/#math-blocks) for all supported mathematical operations, functions and variables.",
+    "color": 15158332
+}}
+
+{c:cembed {{if({check}==true):success|fail}}}
