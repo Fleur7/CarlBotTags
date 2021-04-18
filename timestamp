@@ -1,0 +1,21 @@
+{=(COMMENT):Reference: https://discord.com/developers/docs/reference#convert-snowflake-to-datetime}
+{=(COMMENT):Do not change anything below.}
+
+{=(COMMENT):Get rid of all characters to only get the ID.}
+{=(data):{args(1):>}}
+{=(inp):{replace(<,):{replace(#,):{replace(!,):{replace(&,):{replace(@,):{{if({args(1)}!=):data(0)::|user(id)}}}}}}}}
+{=(COMMENT):Return an error if the {inp} isn't an integer.}
+{{if({ord:{inp}}!=<ord error>):=(id):{inp}|break(==):First argument must be an ID, user/role/channel mention or a custom emoji.}}
+
+{=(COMMENT):Convert ID to binary, shift bits to the right 22 times, convert back to decimal.}
+{=(decimal):{m:trunc({id}/2^22)%2*2^0+trunc({id}/2^23)%2*2^1+trunc({id}/2^24)%2*2^2+trunc({id}/2^25)%2*2^3+trunc({id}/2^26)%2*2^4+trunc({id}/2^27)%2*2^5+trunc({id}/2^28)%2*2^6+trunc({id}/2^29)%2*2^7+trunc({id}/2^30)%2*2^8+trunc({id}/2^31)%2*2^9+trunc({id}/2^32)%2*2^10+trunc({id}/2^33)%2*2^11+trunc({id}/2^34)%2*2^12+trunc({id}/2^35)%2*2^13+trunc({id}/2^36)%2*2^14+trunc({id}/2^37)%2*2^15+trunc({id}/2^38)%2*2^16+trunc({id}/2^39)%2*2^17+trunc({id}/2^40)%2*2^18+trunc({id}/2^41)%2*2^19+trunc({id}/2^42)%2*2^20+trunc({id}/2^43)%2*2^21+trunc({id}/2^44)%2*2^22+trunc({id}/2^45)%2*2^23+trunc({id}/2^46)%2*2^24+trunc({id}/2^47)%2*2^25+trunc({id}/2^48)%2*2^26+trunc({id}/2^49)%2*2^27+trunc({id}/2^50)%2*2^28+trunc({id}/2^51)%2*2^29+trunc({id}/2^52)%2*2^30+trunc({id}/2^53)%2*2^31+trunc({id}/2^54)%2*2^32+trunc({id}/2^55)%2*2^33+trunc({id}/2^56)%2*2^34+trunc({id}/2^57)%2*2^35+trunc({id}/2^58)%2*2^36+trunc({id}/2^59)%2*2^37+trunc({id}/2^60)%2*2^38+trunc({id}/2^61)%2*2^39+trunc({id}/2^62)%2*2^40+trunc({id}/2^63)%2*2^41}}
+
+{=(COMMENT):Convert decimal to unix timestamp in seconds.}
+{=(discord_epoch):1420070400000}
+{=(timestamp):{m:trunc(({decimal}+{discord_epoch})/1000)}}
+
+{=(COMMENT):Return result in different formats.}
+{timestamp}
+{strf({timestamp}):%F %T UTC}
+{strf({timestamp}):%B {ord:{strf({timestamp}):%-d}} %Y at %-I:%M %p UTC}
+{td:{timestamp}}
