@@ -1,0 +1,5 @@
+{override}
+{=(verifyRoleId):807159742140776468}
+{blacklist(You are already verified!):{verifyRoleId}}
+{c:role add {user(id)} {verifyRoleId}}
+You are now verified.
