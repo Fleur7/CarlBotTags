@@ -1,5 +1,5 @@
 # Output curly bracktes without them becoming blocks
-This snippet can be used to output curly brackets ('{' and '}') without having them interpreted as a TagScript block. This can be used to put TagScript blocks inside triggers made by a tag, without the blocks already executing in the tag.
+This snippet can be used to output curly brackets ('{' and '}') without having them interpreted as a TagScript block. It can be used to put TagScript blocks inside triggers made by a tag, without the blocks already executing in the tag.
 ```
 {=( ):{ }}
 {=(b):{ (1)}}
@@ -19,7 +19,7 @@ This tag has no {b}delete{d} block.
 
 ![](https://i.imgur.com/iR6HkcB.png)
 
-This can be very useful when you want to create a trigger with a tag and you want to use TagScript blocks in the trigger.
+#### Example with a trigger
 
 ```
 {=( ):{ }}
