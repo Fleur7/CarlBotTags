@@ -19,7 +19,7 @@ This tag has no {b}delete{d} block.
 
 ![](https://i.imgur.com/iR6HkcB.png)
 
-This can be very usefull when you want to create a trigger with a tag and you want to use TagScript blocks in the trigger.
+This can be very useful when you want to create a trigger with a tag and you want to use TagScript blocks in the trigger.
 
 ```
 {=( ):{ }}
