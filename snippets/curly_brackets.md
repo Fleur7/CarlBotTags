@@ -34,6 +34,12 @@ This tag has no {b}delete{d} block.
 
 ### Explanation
 
-When a variable is not defined before it's called, it just returns the block it self, which include the brackets([example](https://i.imgur.com/mxZiGfn.png)). Now you can parse to just get the brackets, which is easier done when using a space(red-underlined). The blue underlined space is a space because it's a simple variable name that probably isn't really used and because an empty variable name could interfere with `{=():}`.  
-
-![](https://i.imgur.com/jb5jK1Q.png)
+```
+{=( ):{ }}
+{=(b):{ (1)}}
+{=(d):{ (2)}}
+```
+The first line creates a variable whose name is a space, whose content is `{ }`. So when you parse this variable, the first element of it is `{`, and the second element of it is `}`.
+Knowing this, we simply store those parsings in their own separate variable, here named "b" and "d".
+So `{=(b):{ (1)}}` actually parses the first element of the `{=( ):}` variable, effectively returning `{`. Same for the `d` variable.
+The first variable could have been named anything, but a space is unlikely to be the name of a variable you have in your code, so it's convenient and unlikely to conflict with the others, but it *could* be anything else.
