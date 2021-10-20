@@ -17,7 +17,7 @@ After this, every `{b}` will be a '{' and every `{d}` a '}'.
 This tag has no {b}delete{d} block.
 ```
 
-![](https://i.imgur.com/FykQdVG.png)
+![](https://i.imgur.com/KnksbvA.png)
 
 #### Example with a trigger
 
@@ -30,7 +30,7 @@ This tag has no {b}delete{d} block.
 {b}user(mention){d} {user(name)} is AFK. Please do not not ping them.}
 ```
 
-![](https://i.imgur.com/A5PHS02.png)
+![](https://i.imgur.com/eybNs2N.png)
 
 ### Explanation
 
