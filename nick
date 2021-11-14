@@ -1,0 +1,82 @@
+{=({args(2+)}):}
+{=(COMMENT):You can set keyword nicknames below with the following format: "{=(<keyword>):<name>}". A few examples are given.}
+{=(-ping):Pingable Name}
+{=(-change):Changed Name}
+
+{=(COMMENT):This keyword can be used to reset someone's nickname. The name set is a single zero width space.}
+{=(reset_keyword):-reset}
+
+
+{=({reset_keyword}):​}
+{=(defaultnick):{{args(2+)}}}
+
+{=(COMMENT):Do NOT change anything in the 3 lines below this one.}
+{=( ):{ }}
+{=(b):{ (1)}}
+{=(d):{ (2)}}
+
+{=(COMMENT):Change settings. For a "{", use "{b}" instead and for "}", use "{d}" instead.}
+{=(whitelist):{i}aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789-/:;()$&@".,?!'[]{b}{d}#%^*+=_\~<>€}
+{=(COMMENT):You can change the character that will replace non-whitelisted characters below. }
+{=(replace_with):}
+{=(COMMENT):You can change the default nicnkname below. This name will be used when a user's name is entirely special characters and no second argument is given.}
+{=(default_nickname):Nickname}
+
+{=(COMMENT):Don't change anything below this.}
+{=():}
+{=(i):​‎}
+{=(whitelist):{i}{whitelist}}
+{=(hasMention):{if({user(id)}!={target(id)}):true|false}}
+{=(doDefault):{or({defaultnick}!=|{and({hasMention}==false|{args(2+)}==):true|false}==true):true|false}}
+{=(doCustom):{and({args(2+)}!=|{doDefault}==false):true|false}}
+{=(doAuto):{and({hasMention}==true|{doDefault}==false|{doCustom}==false):true|false}}
+{=(selfTarget):{in({user(id)}):{args(1)}}}
+{=(ucwhite):{replace(%20, ):{urlencode:{replace(, ):{whitelist}}}}}
+{=(name):{replace(, ):{replace(|,​):{join(‎):{target}}}}}
+{=(len):{index(aa):{name}aa}}
+{=(name):{name(2+)}}
+{=(ucname):{replace(%20, ):{urlencode:{name}}}}
+
+{=(c1):{{if({contains({ucname(1)}):{ucwhite}}==true):name(1)|replace_with}}}
+{=(c2):{{if({contains({ucname(2)}):{ucwhite}}==true):name(2)|replace_with}}}
+{=(c3):{{if({contains({ucname(3)}):{ucwhite}}==true):name(3)|replace_with}}}
+{=(c4):{{if({contains({ucname(4)}):{ucwhite}}==true):name(4)|replace_with}}}
+{=(c5):{{if({contains({ucname(5)}):{ucwhite}}==true):name(5)|replace_with}}}
+{=(c6):{{if({contains({ucname(6)}):{ucwhite}}==true):name(6)|replace_with}}}
+{=(c7):{{if({contains({ucname(7)}):{ucwhite}}==true):name(7)|replace_with}}}
+{=(c8):{{if({contains({ucname(8)}):{ucwhite}}==true):name(8)|replace_with}}}
+{=(c9):{{if({contains({ucname(9)}):{ucwhite}}==true):name(9)|replace_with}}}
+{=(c10):{{if({contains({ucname(10)}):{ucwhite}}==true):name(10)|replace_with}}}
+{=(c11):{{if({contains({ucname(11)}):{ucwhite}}==true):name(11)|replace_with}}}
+{=(c12):{{if({contains({ucname(12)}):{ucwhite}}==true):name(12)|replace_with}}}
+{=(c13):{{if({contains({ucname(13)}):{ucwhite}}==true):name(13)|replace_with}}}
+{=(c14):{{if({contains({ucname(14)}):{ucwhite}}==true):name(14)|replace_with}}}
+{=(c15):{{if({contains({ucname(15)}):{ucwhite}}==true):name(15)|replace_with}}}
+{=(c16):{{if({contains({ucname(16)}):{ucwhite}}==true):name(16)|replace_with}}}
+{=(c17):{{if({contains({ucname(17)}):{ucwhite}}==true):name(17)|replace_with}}}
+{=(c18):{{if({contains({ucname(18)}):{ucwhite}}==true):name(18)|replace_with}}}
+{=(c19):{{if({contains({ucname(19)}):{ucwhite}}==true):name(19)|replace_with}}}
+{=(c20):{{if({contains({ucname(20)}):{ucwhite}}==true):name(20)|replace_with}}}
+{=(c21):{{if({contains({ucname(21)}):{ucwhite}}==true):name(21)|replace_with}}}
+{=(c22):{{if({contains({ucname(22)}):{ucwhite}}==true):name(22)|replace_with}}}
+{=(c23):{{if({contains({ucname(23)}):{ucwhite}}==true):name(23)|replace_with}}}
+{=(c24):{{if({contains({ucname(24)}):{ucwhite}}==true):name(24)|replace_with}}}
+{=(c25):{{if({contains({ucname(25)}):{ucwhite}}==true):name(25)|replace_with}}}
+{=(c26):{{if({contains({ucname(26)}):{ucwhite}}==true):name(26)|replace_with}}}
+{=(c27):{{if({contains({ucname(27)}):{ucwhite}}==true):name(27)|replace_with}}}
+{=(c28):{{if({contains({ucname(28)}):{ucwhite}}==true):name(28)|replace_with}}}
+{=(c29):{{if({contains({ucname(29)}):{ucwhite}}==true):name(29)|replace_with}}}
+{=(c30):{{if({contains({ucname(30)}):{ucwhite}}==true):name(30)|replace_with}}}
+{=(c31):{{if({contains({ucname(31)}):{ucwhite}}==true):name(31)|replace_with}}}
+{=(c32):{{if({contains({ucname(32)}):{ucwhite}}==true):name(32)|replace_with}}}
+
+{=(spaced):{c1} {c2} {c3} {c4} {c5} {c6} {c7} {c8} {c9} {c10} {c11} {c12} {c13} {c14} {c15} {c16} {c17} {c18} {c19} {c20} {c21} {c22} {c23} {c24} {c25} {c26} {c27} {c28} {c29} {c30} {c31} {c32}}
+{=(censor):{replace(​,|):{replace(‎, ):{join():{spaced(+{len})}}}}}
+
+{{if({defaultnick}==):=(defaultnick):{default_nickname}}}
+{=(newname):{{if({doAuto}==true):{if({censor}!=):censor|defaultnick}|{if({doCustom}==true):args(2+)|{if({doDefault}==true):defaultnick}}}}}
+
+{=(error):}
+{{if({selfTarget}==true):=(error):You can't change your own name.}}
+{{if({args(1)}==):=(error):user is a required argument that is missing.}}
+{{if({error}==):c:setnick {args(1)} {newname}|error}}
